@@ -1,0 +1,32 @@
+#:include kv/homeScreen.kv
+#:include kv/chooseDate.kv
+#:include kv/havePlane.kv
+#:include kv/enterText.kv
+#:include kv/spiltMoney.kv
+#:include kv/textBill.kv
+
+GridLayout:
+    cols:1
+    ScreenManager:
+        id: screen_manager
+        HomeScreen:
+            name: "home_screen"
+            id: home_screen
+        ChooseDate:
+            name: "choose_date"
+            id: choose_date
+        HavePlane:
+            name: "have_plane"
+            id: have_plane
+        EnterText:
+            name: "enter_text"
+            id: enter_text
+        SpiltMoney:
+            name: "spilt_money"
+            id: spilt_money
+
+        TextBill:
+            name:"text_bill"
+            id: ext_bill
+
+    

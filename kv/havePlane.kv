@@ -1,0 +1,61 @@
+<havePlane>:
+    MDFloatLayout:
+        canvas.before:
+            Rectangle:
+                source:"icons/background.png"
+                size: self.size
+                pos: self.pos
+        ScrollView:
+            size_hint: 1, 0.8
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            GridLayout:
+                id: content_grid
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "20dp"
+                padding: "20dp"
+
+                MDCard:
+                    style: "outlined"
+                    orientation: "vertical"
+                    padding: "8dp"
+                    size_hint: 1, None
+                    height: dp(200)
+                    MDLabel:
+                        text: "Click the plus button to write something"
+                        theme_text_color: "Secondary"
+                        size_hint: 1, 1
+                    MDIconButton:
+                        icon: "delete"
+                        pos_hint: {"center_x": 0.9, "center_y": 0.1}
+                        on_release:
+                            app.delete_card(self.parent, "have_plane")
+        
+        BoxLayout:
+            size_hint: 1, 0.1
+            pos_hint: {'center_x': 0.5, 'y': 0}
+            padding: "30dp"
+            spacing: "65dp"
+            ImageButton:
+                size_hint: None, None
+                size: dp(60), dp(60)
+                source: "icons/return.png"
+                on_release:
+                    app.change_screen('home_screen')
+
+            ImageButton:
+                size_hint: None, None
+                size: dp(56), dp(56)
+                source: "icons/redo.png"
+                on_release:
+                    app.delete_all_card("have_plane")
+
+            ImageButton:
+                size_hint: None, None
+                size: dp(52), dp(52)
+                source: "icons/plus.png"
+                on_release:
+                    app.change_screen("enter_text")
+
+            

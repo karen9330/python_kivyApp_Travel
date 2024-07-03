@@ -1,0 +1,97 @@
+#:import utils kivy.utils
+
+<chooseDate>:
+    MDFloatLayout:
+
+        RelativeLayout:
+            size_hint: 1, 0.15
+            pos_hint: {'center_x': 0.5, 'center_y': 0.77}
+
+            Label:
+                id: topic_text
+                size_hint: 0.55, 0.15
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                text:"Topic of Vote"
+                color:(0,0,0,1)
+                background: (0.5,0.5,0.5,0.5)
+                font_name: 'HappyMonday.otf'
+                font_size: '35sp'
+                canvas.before:
+                    Color:
+                        rgba: self.background
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+            MDIconButton:
+                icon: "pencil"
+                pos_hint: {'center_x': 0.75, 'center_y': 0.5}
+                on_release:
+                    app.show_edit_dialog('topic_text',"Topic of Vote", "choose_date")
+
+
+        BoxLayout:
+            orientation: 'vertical'  
+            size_hint: 1, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.93}
+            padding: 10
+            canvas:
+                Color:
+                    rgba: utils.get_color_from_hex("#484848")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            MDLabel:
+                text: "R A N K I N G"
+                color: (1, 1, 1, 1)
+                font_name: 'HappyMonday.otf'
+                font_size: '45sp'
+                halign: 'center'
+                valign: 'middle'
+
+        
+        BoxLayout:
+            size_hint: 1, 0.1
+            pos_hint: {'center_x': 0.5, 'y': 0}
+            padding: "30dp"
+            spacing: "65dp"
+            ImageButton:
+                size_hint: None, None
+                size: dp(60), dp(60)
+                source: "icons/return.png"
+                on_release:
+                    app.change_screen('home_screen')
+
+            ImageButton:
+                size_hint: None, None
+                size: dp(56), dp(56)
+                source: "icons/redo.png"
+                on_release:
+                    app.clean_date_picker('topic_text')
+
+            ImageButton:
+                size_hint: None, None
+                size: dp(52), dp(52)
+                source: "icons/vote.png"
+                on_release:
+                    app.show_date_picker()
+
+        MDLabel:
+            id: rank_label
+            text: ""
+            color: (0, 0, 0, 1)
+            font_name: 'HappyMonday.otf'
+            font_size: '30sp'
+            halign: 'center'
+            valign: 'middle'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        RelativeLayout:
+            # put the rank
+            pos_hint:{'center_x': 0.5, 'center_y': 0.45}
+            size_hint: 1, 1
+            Image:
+                source: "icons/rank.png"
+
+        

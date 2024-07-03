@@ -1,0 +1,106 @@
+<textBill>:
+
+    BoxLayout:
+        orientation: 'vertical'  
+        size_hint: 1, 0.2
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        padding: 10
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex("#484848")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        MDLabel:
+            text: "Split the Bill"
+            color: (1, 1, 1, 1)
+            font_name: 'HappyMonday.otf'
+            font_size: '45sp'
+            halign: 'center'
+            valign: 'middle'
+
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex("#848482")
+                Rectangle:
+                    size: self.size 
+                    pos: self.pos
+    
+    MDRelativeLayout:
+
+        size_hint: 1, 0.2
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+
+        MDLabel: 
+            color: (0, 0, 0, 1)
+            text: "Money:"
+            font_name: 'HappyMonday.otf'
+            font_size: '25sp'
+            pos_hint: {"center_x": 0.6, "top": 0.8}
+
+        MDTextField:
+            id: money_text
+            hint_text: "Enter text"
+            size_hint: 0.8, None
+            height: dp(40)
+            pos_hint: {"center_x": 0.5, "top": 0.3}
+            multiline: False
+    
+    MDRelativeLayout:
+
+        size_hint: 1, 0.2
+        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+
+        MDLabel: 
+            color: (0, 0, 0, 1)
+            text: "People:"
+            font_name: 'HappyMonday.otf'
+            font_size: '25sp'
+            pos_hint: {"center_x": 0.6, "top": 0.8}
+
+        MDTextField:
+            id: people_text
+            hint_text: "Enter the name with space"
+            size_hint: 0.8, None
+            height: dp(40)
+            pos_hint: {"center_x": 0.5, "top": 0.3}
+            multiline: True
+    
+    MDRelativeLayout:
+
+        size_hint: 1, 0.2
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+        MDLabel: 
+            color: (0, 0, 0, 1)
+            text: "Details:"
+            font_name: 'HappyMonday.otf'
+            font_size: '25sp'
+            pos_hint: {"center_x": 0.6, "top": 0.8}
+
+        MDTextField:
+            id: details_text
+            hint_text: "Enter text"
+            size_hint: 0.8, None
+            height: dp(40)
+            pos_hint: {"center_x": 0.5, "top": 0.3}
+            multiline: True
+    
+    Button:
+        pos_hint: {"center_x": 0.7, "center_y": 0.1}
+        size_hint: 0.2, 0.1
+        background_color:(0.5,0.5,0.5,1)
+        text: "O K" 
+        font_name: 'HappyMonday.otf'
+        font_size: '30sp'
+        on_release:
+            app.add_bill()
+    Button:
+        pos_hint: {"center_x": 0.3, "center_y": 0.1}
+        size_hint: 0.22, 0.1
+        text:"cancel"
+        font_name: 'HappyMonday.otf'
+        font_size: '30sp'
+        on_release:
+            app.cancel_edit('split_money')

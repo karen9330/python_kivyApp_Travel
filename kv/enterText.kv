@@ -1,0 +1,47 @@
+<enterText>:
+
+    BoxLayout:
+        orientation: 'vertical'  
+        size_hint: 1, 0.2
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        padding: 10
+        canvas:
+            Color:
+                rgba: utils.get_color_from_hex("#484848")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        MDLabel:
+            text: "Plane Your Trip"
+            color: (1, 1, 1, 1)
+            font_name: 'HappyMonday.otf'
+            font_size: '45sp'
+            halign: 'center'
+            valign: 'middle'
+
+    MDTextField:
+        id: text_input
+        hint_text: "Enter text"
+        size_hint: 0.8, None
+        height: dp(40)
+        pos_hint: {"center_x": 0.5, "top": 0.8}
+        multiline: True
+
+    Button:
+        pos_hint: {"center_x": 0.7, "center_y": 0.1}
+        size_hint: 0.2, 0.1
+        background_color:(0.5,0.5,0.5,1)
+        text: "O K" 
+        font_name: 'HappyMonday.otf'
+        font_size: '30sp'
+        on_release:
+            app.add_card()
+    Button:
+        pos_hint: {"center_x": 0.3, "center_y": 0.1}
+        size_hint: 0.22, 0.1
+        text:"cancel"
+        font_name: 'HappyMonday.otf'
+        font_size: '30sp'
+        on_release:
+            app.cancel_edit('have_plane')

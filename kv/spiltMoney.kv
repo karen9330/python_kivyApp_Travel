@@ -1,0 +1,59 @@
+#:import utils kivy.utils
+
+<spiltMoney>:
+    MDFloatLayout:
+        BoxLayout:
+            size_hint: 1, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+            canvas:
+                Color:
+                    rgba: utils.get_color_from_hex("#848482")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                size_hint: 0.55, 0.15
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                text:"Spilt the Bill"
+                color:(1,1,1,1)
+                font_name: 'HappyMonday.otf'
+                font_size: '45sp'
+                
+        ScrollView:
+            size_hint: 1, 0.6
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            GridLayout:
+                id: bill_grid
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "20dp"
+                padding: "20dp"
+
+        BoxLayout:
+            size_hint: 1, 0.1
+            pos_hint: {'center_x': 0.5, 'y': 0}
+            padding: "30dp"
+            spacing: "65dp"
+            ImageButton:
+                size_hint: None, None
+                size: dp(60), dp(60)
+                source: "icons/return.png"
+                on_release:
+                    app.change_screen('home_screen')
+
+            ImageButton:
+                size_hint: None, None
+                size: dp(56), dp(56)
+                source: "icons/bill.png"
+                on_release:
+                    app.show_splited_bill()
+
+            ImageButton:
+                size_hint: None, None
+                size: dp(52), dp(52)
+                source: "icons/plus.png"
+                on_release:
+                    app.change_screen('text_bill')

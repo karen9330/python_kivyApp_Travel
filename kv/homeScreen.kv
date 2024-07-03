@@ -1,0 +1,100 @@
+#:import utils kivy.utils
+
+<HomeScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#848282")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Image:
+            pos_hint:{"top": 1.05, "left": 1}
+            size_hint: 1, 0.4
+            source: "icons/travel.png"
+
+        RelativeLayout:
+            # pick the date
+            pos_hint: {"top": 0.85, "left": 1}
+            size_hint: 1, 0.35
+
+            Button:
+                pos_hint: {"center_x": 0.58, "center_y": 0.48}
+                size_hint: 0.47, 0.27
+                background_color:(1,0,0,0)
+                on_release:
+                    app.change_screen("choose_date")
+            Image:
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: 1, 1
+                source: "icons/date.PNG"
+                
+            Label:
+                pos_hint: {"center_x": 0.58, "center_y": 0.5}
+                size_hint: 0.5, 0.5
+                text: "Pick the date"
+                halign: 'center'
+                valign: 'middle'
+                color: (0,0,0,1)
+                font_name: 'HappyMonday.otf'
+                font_size: '30sp'
+
+        RelativeLayout:
+            # put the place
+            pos_hint:{"top": 0.68, "left": 1}
+            size_hint: 1, 0.35
+
+            Button:
+                pos_hint: {"center_x": 0.58, "center_y": 0.48}
+                size_hint: 0.47, 0.27
+                background_color:(1,0,0,0)
+                on_release:
+                    app.change_screen("have_plane")
+            Image:
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: 1, 1
+                source: "icons/place.PNG"
+                
+            Label:
+                pos_hint: {"center_x": 0.58, "center_y": 0.47}
+                size_hint: 0.5, 0.5
+                text: "Have a Plane"
+                halign: 'center'
+                valign: 'middle'
+                color: (0,0,0,1)
+                font_name: 'HappyMonday.otf'
+                font_size: '30sp'
+
+        RelativeLayout:
+            # put the money
+            pos_hint:{"top": .5, "left": 1}
+            size_hint: 1, .35
+
+            Button:
+                pos_hint: {"center_x": 0.58, "center_y": 0.48}
+                size_hint: 0.47, 0.27
+                background_color:(1,0,0,0)
+                on_release:
+                    app.change_screen("spilt_money")
+            Image:
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: 1, 1
+                source: "icons/money.PNG"
+                
+            Label:
+                pos_hint: {"center_x": 0.58, "center_y": 0.46}
+                size_hint: 0.5, 0.5
+                text: "Split the Bill"
+                halign: 'center'
+                valign: 'middle'
+                color: (0,0,0,1)
+                font_name: 'HappyMonday.otf'
+                font_size: '30sp'
+
+        GridLayout:
+            # put the earth
+            rows: 1
+            pos_hint:{"top": .2, "left": 1}
+            size_hint: 1, .4
+            Image:
+                source: "icons/earth.PNG"
